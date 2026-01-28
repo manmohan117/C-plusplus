@@ -14,14 +14,15 @@ using namespace std;
 // Ensure the heap memory is released. Print "[System] Vault for {owner} destroyed" to the console.
 
 
+
 class PasswordVault {
     
-    public:
+    private:
     string owner;  
     string* passwords;
     int capacity;
     int currentCount ;
-
+    static int vaultcount ;
 
     public:
 
@@ -29,7 +30,7 @@ class PasswordVault {
     {
         cout<<"constructor called ";
 
-
+        vaultcount++;
         this->owner = owner;
         this->capacity = capacity;
         passwords = new string[capacity];
@@ -37,7 +38,10 @@ class PasswordVault {
 
     }
     
-
+    int getVaultcount()
+    {
+        return vaultcount;
+    }
     void addPassword(string password)
     {
         if(currentCount < capacity)
@@ -69,19 +73,25 @@ class PasswordVault {
     ~PasswordVault()
     {
         cout<<"Destructor called" <<endl;
-
+        vaultcount--;
         delete[] passwords;
     }
 
 } ;
 
+int PasswordVault::vaultcount = 0;
+
 int main() {
     
     PasswordVault object1("manmohan" , 2);
-    object1.addPassword("132");
-    object1.addPassword("123544");
+    PasswordVault object2("yuvraj" , 4);
+    // object1.addPassword("132");
+    // object1.addPassword("123544");
+    // object1.displayVault();
 
-    object1.displayVault();
+    cout<<object1.getVaultcount();
 
+    // PasswordVault shared ;
+    
     return 0;
 }

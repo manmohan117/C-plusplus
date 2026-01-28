@@ -1,14 +1,11 @@
 #include <iostream>
 using namespace std;
 
-
 // int id = 0;
 // int studentCount = 0;
 
-
 static int id = 0;
 static int studentCount = 0;
-
 
 class StudentRecord 
 {
@@ -75,6 +72,27 @@ class StudentRecord
         cout<<"\n\n\n";
     }
 
+    StudentRecord operator+(StudentRecord &other) 
+    {
+        StudentRecord temp(this->student_name + " And " + other.student_name ,  this->subjectCount + other.subjectCount);
+        
+        temp.grades = new float[temp.subjectCount];
+
+
+        for (int i = 0 ; i< this->subjectCount ; i++)
+        {
+            temp.grades[i] = this->grades[i];
+        }
+
+        for (int i = 0; i< other.subjectCount ; i++)
+        {
+            temp.grades[i + this->subjectCount ] = other.grades[i];
+        }
+
+        return temp;
+        
+    }
+
     ~StudentRecord()
     {
         studentCount--;
@@ -89,17 +107,14 @@ int main()
     StudentRecord *abhijeet = new StudentRecord("Abhijeet" , 3); // allocate to heap
     StudentRecord *vineel = new StudentRecord("vineel" , 3);
 
-    // abhijeet->addGrades();
-    // vineel->addGrades();
+    abhijeet->addGrades();
+    vineel->addGrades();
     abhijeet->print();
     vineel->print();
 
-    StudentRecord *abhijeet_new   = new StudentRecord(*abhijeet); // 
+    StudentRecord sharedRecord = *abhijeet + *vineel;
 
-
-
-
-    // abhijeet_new->print();
+    sharedRecord.print();
      
     return 0;
 }
