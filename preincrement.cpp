@@ -13,6 +13,5 @@ int main() {
     cout<<j++; 
     cout<<j<<endl; // 1; 
 
-
     return 0;
 }

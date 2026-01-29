@@ -1,23 +1,25 @@
 #include <iostream>
 using namespace std;
 
-
 class Point {
+    private:
     int x ;
     int y ;
    public:
    Point ( int point1 , int point2 ) : x(point1) , y( point2) { cout<<"constructor called" ;};
 
+   Point() 
+   {
+
+   }
    void print()
    {
      cout<<"\n x : " << x << " y : "<< y<<endl;
    }
-
    Point operator-(Point &otherPoint)
    {
         return Point(this->x - otherPoint.x , this->y - otherPoint.y) ; 
    }
-
    Point& operator++()
    {
        this->x++;
@@ -25,7 +27,6 @@ class Point {
 
        return *this;
    }
-   // post increment 
    Point operator++(int)
    {
       Point temp(this->x , this->y);
@@ -33,17 +34,54 @@ class Point {
       this->y++;
       return temp;
    }
+   int getx() const
+   {
+    return x;
+   }
+
+   int gety() const
+   {
+    return y;
+   }
+
+   void setx(int x)
+   {
+     this->x = x;
+   }
+
+   void sety(int y)
+   {
+    this->y = y;
+   }
 };
+
+ostream& operator<<(ostream& output , const Point& point)
+{
+    output << point.getx() << " , " << point.gety();
+    return output;
+}
+
+istream& operator>>(istream& input , Point& point)
+{
+   int x , y;
+   input>>x>>y;
+   point.setx(x);
+   point.sety(y);
+
+   return input;
+}
 
 int main() {
     
-    Point p1(10 , 15);
-    Point p2(5,5);
-    ++p1,  p1++;
+    
+    const Point p1(10 , 10);
 
-     Point p3 = p1++;
+    const int i = 0;
 
-    p3.print();
-    p1.print();
+    
+    cout<<p1;
+     // 5 5 
+
+
     return 0;
 }
