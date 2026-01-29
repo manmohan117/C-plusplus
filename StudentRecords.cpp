@@ -1,12 +1,8 @@
 #include <iostream>
 using namespace std;
 
-// int id = 0;
-// int studentCount = 0;
-
-static int id = 0;
-static int studentCount = 0;
-
+int id = 0;
+int studentCount = 0;
 class StudentRecord 
 {
     int student_id ;
@@ -90,7 +86,6 @@ class StudentRecord
         }
 
         return temp;
-        
     }
 
     ~StudentRecord()
@@ -99,7 +94,6 @@ class StudentRecord
         delete[] grades;
     }
 };
-
 
 int main()
 {
