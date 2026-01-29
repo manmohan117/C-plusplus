@@ -43,7 +43,6 @@ class Point {
    {
     return y;
    }
-
    void setx(int x)
    {
      this->x = x;
@@ -53,6 +52,20 @@ class Point {
    {
     this->y = y;
    }
+
+
+   bool operator==(const Point&  point) const
+   {
+      return this->x == point.x && this->y == point.y;
+   }
+
+   bool operator!=(const Point& point) const 
+   {
+      return this->x != point.x && this->y != point.y;
+   }
+
+
+
 };
 
 ostream& operator<<(ostream& output , const Point& point)
@@ -75,13 +88,16 @@ int main() {
     
     
     const Point p1(10 , 10);
+    const Point p2(10 , 10);
 
-    const int i = 0;
 
-    
-    cout<<p1;
-     // 5 5 
+    if(p1 == p2)
+    {
+      cout<< "i and j are equal"<<endl;
+    }
 
+    // cout<<p1;
+    //  // 5 5 
 
     return 0;
 }
