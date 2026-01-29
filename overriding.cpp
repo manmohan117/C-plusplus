@@ -15,12 +15,25 @@ class Entity {
 class Player : public Entity{
 
     public:
-    void display()
+    void display() 
     {
         cout<<"Player :"<<endl;
     }
 
 }; // => derives calls 
+
+
+class newPlayer : public Player {
+
+
+    public:
+
+    void display()
+    {
+        cout<<"Player is a new Player "<<endl;
+    }
+
+};
 
 
 
@@ -31,11 +44,11 @@ int main() {
 
     Entity* entity_ptr = new Player();
 
+    Player* newplayer = new newPlayer;
 
-    // entity.display();
-    // player.display();  
+    newplayer->display();
 
-    entity_ptr->display(); // 
+    // entity_ptr->display(); // 
 
 
 
