@@ -1,17 +1,14 @@
 // Chargers // base // 
 
+
 // wired 
 // wireless 
 #include<iostream>
 using namespace std;
 
 class Chargers {
-
-
     public:
     virtual void charge() = 0;
-
-
 };
 
 
@@ -31,6 +28,14 @@ class WirelessCharger : public Chargers {
     }
 };
 
+class PowerBank : public Chargers {
+    public:
+    void charge()   
+    {
+        cout<<"Charging with power bank "<<endl;
+    }
+};
+
 class Smartphone {
     private:
     Chargers* charger = nullptr;
@@ -39,7 +44,6 @@ class Smartphone {
 
     Smartphone()
     {
-
 
     }
 
@@ -67,12 +71,15 @@ int main()
 
     WiredCharger mycharger33W;
     WirelessCharger mywirelessCharger;
-
-    Smartphone samsung;
+    PowerBank PB ;
+    Smartphone samsung; 
 
     samsung.plugin(&mycharger33W);
     samsung.plugin(&mywirelessCharger);
+    Chargers* ptr  = nullptr; // new charger im deeloper ;
 
+    // PB.charge();
+    // samsung.plugin(ptr);
 
 
 }
