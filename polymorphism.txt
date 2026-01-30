@@ -1,0 +1,6 @@
+// Notification: -> notification 
+- > send();
+
+- Emailnotificaiton -> child of notificaiton -> send();
+- SMS -> send();
+- whatsapp -> send()

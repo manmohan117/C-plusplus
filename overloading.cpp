@@ -2,9 +2,9 @@
 using namespace std;
 
 class Point {
-    private:
-    int x ;
-    int y ;
+   private:
+      int x ;
+      int y ;
    public:
    Point ( int point1 , int point2 ) : x(point1) , y( point2) { cout<<"constructor called" ;};
 
@@ -52,8 +52,6 @@ class Point {
    {
     this->y = y;
    }
-
-
    bool operator==(const Point&  point) const
    {
       return this->x == point.x && this->y == point.y;
@@ -63,9 +61,6 @@ class Point {
    {
       return this->x != point.x && this->y != point.y;
    }
-
-
-
 };
 
 ostream& operator<<(ostream& output , const Point& point)

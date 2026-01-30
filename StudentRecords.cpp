@@ -23,7 +23,6 @@ class StudentRecord
         {
             grades[i] = 0;
         }
-
         grades[subjectCount] = -1;
     }
 
@@ -38,7 +37,6 @@ class StudentRecord
         {
             this->grades[i] = old.grades[i];
         }
-
         this->grades[subjectCount] = -1;
     
     }
@@ -46,7 +44,6 @@ class StudentRecord
     void addGrades()
     {
         float* temp = grades;
-
         for(; *temp != -1 ; )
         {
             cin>>*temp;
@@ -71,15 +68,11 @@ class StudentRecord
     StudentRecord operator+(StudentRecord &other) 
     {
         StudentRecord temp(this->student_name + " And " + other.student_name ,  this->subjectCount + other.subjectCount);
-        
         temp.grades = new float[temp.subjectCount];
-
-
         for (int i = 0 ; i< this->subjectCount ; i++)
         {
             temp.grades[i] = this->grades[i];
         }
-
         for (int i = 0; i< other.subjectCount ; i++)
         {
             temp.grades[i + this->subjectCount ] = other.grades[i];
@@ -87,7 +80,6 @@ class StudentRecord
 
         return temp;
     }
-
     ~StudentRecord()
     {
         studentCount--;
@@ -107,8 +99,6 @@ int main()
     vineel->print();
 
     StudentRecord sharedRecord = *abhijeet + *vineel;
-
     sharedRecord.print();
-     
     return 0;
 }

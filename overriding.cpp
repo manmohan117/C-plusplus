@@ -3,13 +3,11 @@ using namespace std;
 
 
 class Entity {
-
     public:
-    void display()
+    virtual void display() // virtual function
     {
         cout<<"Entity :"<<endl;
     }
-
 }; // => base 
 
 class Player : public Entity{
@@ -28,7 +26,7 @@ class newPlayer : public Player {
 
     public:
 
-    void display()
+    void display() 
     {
         cout<<"Player is a new Player "<<endl;
     }
@@ -36,23 +34,23 @@ class newPlayer : public Player {
 };
 
 
-
 int main() {
     
     Player player;
     Entity entity;
 
-    Entity* entity_ptr = new Player();
+    // Entity* entity_ptr = new Player();
+    // Player* newplayer = new newPlayer;
 
-    Player* newplayer = new newPlayer;
+    Entity *pointstoAnyEntity = nullptr;
+    
+    pointstoAnyEntity  = &player;
 
-    newplayer->display();
+    pointstoAnyEntity->display(); // 
+
+    // newplayer->display();
 
     // entity_ptr->display(); // 
-
-
-
-
-
     return 0;
+
 }
