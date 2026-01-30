@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-
 class Entity {
     public:
     virtual void display() // virtual function
