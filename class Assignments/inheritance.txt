@@ -1,0 +1,6 @@
+Create an interface IDevice.
+Define two pure virtual methods: void turnOn() and void turnOff().
+Create two classes, TV and Fan, that inherit from IDevice.
+The Test: In main, create an array of IDevice* pointers. 
+Put one TV and one Fan inside.
+Loop through the array and call turnOn() for everything.

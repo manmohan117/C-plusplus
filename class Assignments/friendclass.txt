@@ -1,0 +1,7 @@
+Create class BankAccount.
+Private: double balance.
+Static: static double totalBankCash. Update this whenever a new account 
+is created.
+Friendship: Declare class TaxAuditor as a friend.
+The Test: Create a TaxAuditor class with a method 
+inspect(BankAccount &account) that prints the private balance.

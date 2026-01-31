@@ -1,44 +1,57 @@
-#include <iostream>
-using namespace std;
+// private;
+#include<iostream>
 
+using std::string;
+using std::cout;
+using std::endl;
 
-class A {
+class Base {
+    private:
+    int secret = 100;
 
     public:
-    A()
+    int getSecret(string role)
     {
-        cout<<"Base class"<<endl;
+        if(role == "admin")
+        return secret;
+
+        else{
+            cout<<"Not Authorized!"<<endl;
+            return -1;
+        }
+
+    }
+    friend class Derived;
+}; 
+
+ class Derived : public Base {
+    private:
+    string role ;
+    public:
+    Derived(string role)
+    {
+        this->role = role;
     }
 
-    
-    virtual ~A()
+    string getRole() const
     {
-        cout<<"Base class Destructor Called"<<endl;
+        return role;
     }
+
+    void secret_()
+    {
+        cout<<"Base class Secret Value is :";
+        cout<<secret<<endl;
+    }
+
 
 };
 
 
-class B : public A{
-    public:
-    B()
-    {
-        cout<<"derived Class"<<endl;
-    }
-
-    ~B()
-    {
-        cout<<"Derived Class Destructor called"<<endl;
-    }
-};
-
-
-int main ()
+int main()
 {
-
-    A* object_ptr = new B;
-    
-    delete object_ptr;
-
-
+    Derived object("user");
+    object.secret_();
 }
+
+

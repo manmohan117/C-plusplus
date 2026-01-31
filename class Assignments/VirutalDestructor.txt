@@ -1,0 +1,5 @@
+Create a base class Server. Its destructor should print "Server hardware off."
+Create a derived class WebStack that inherits from Server.
+In WebStack, create a constructor that prints "Allocating 10GB of RAM" and a destructor that prints "10GB RAM Released!"
+The Test: In main, create a Server* s = new WebStack(); and then delete s;.
+The Goal: Students must identify that the RAM is not released until they add the virtual keyword to the Server destructor.
