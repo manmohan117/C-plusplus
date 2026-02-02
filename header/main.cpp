@@ -1,9 +1,14 @@
-#include <iostream>
-#include "headers.h"
-
+#include<iostream>
+#include"HybridCar.h"
 using namespace std;
 
-int main() {
-    print();
-    return 0;
+int main()
+{
+    HybridCar  car ;
+
+    car.engine();
+    car.gearBox();
+    car.steeringWheel();
+
+
 }
