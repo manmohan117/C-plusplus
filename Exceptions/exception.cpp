@@ -7,7 +7,7 @@ int main() {
         string s = "hello";
         int index = 5;
         if(index >= s.size())
-        throw(runtime_error("the index size is out of bound"));
+        throw(runtime_error("this is runtime error!"));
         cout<<s.at(index);
   }
 
@@ -16,8 +16,9 @@ int main() {
     cout<<"second catch"<<endl;
     cout<<e.what()<<endl;
   }
-  catch(...){ 
+  catch(exception &e){ 
     cout<<"first catch"<<endl;
+    cout<<e.what();
     // cout<<e.what()<<endl;
   }
 

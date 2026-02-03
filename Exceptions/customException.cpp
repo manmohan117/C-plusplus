@@ -2,20 +2,18 @@
 using namespace std;
 
 class Myexception : public exception {
-
     public:
     const char* what() const noexcept
     {
         return " my custom exception";
     }
-
 };
 
 int main() {
     try {
         throw(Myexception());
     }
-    catch(exception &e )
+    catch(exception &e ) // exception &e  = Myexception . 
     {
         cout<<"first catch "<<endl;
         cout<<e.what()<<endl;
