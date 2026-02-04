@@ -7,7 +7,7 @@ class Server
     {
         cout<<"Server is starting "<<endl;
     }
-    ~Server()
+    virtual ~Server()
     {
         cout<<"Server hardware off."<<endl;
     }
@@ -30,7 +30,7 @@ class WebStack : public Server
 
 int main() {
 
-    WebStack* s = new WebStack(); 
+    Server* s = new WebStack(); 
     delete s;
     return 0;
 }
