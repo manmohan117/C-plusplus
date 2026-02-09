@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-
 int id = 0;
 int studentCount = 0;
 class StudentRecord 
@@ -9,7 +8,7 @@ class StudentRecord
     string student_name;
     float* grades;
     int subjectCount ;
-
+    
     public:
     StudentRecord(string name , int subjectCount)
     {
@@ -25,7 +24,6 @@ class StudentRecord
         }
         grades[subjectCount] = -1;
     }
-
     StudentRecord(StudentRecord & old) 
     {   
         this->student_id = old.student_id;
@@ -38,7 +36,6 @@ class StudentRecord
             this->grades[i] = old.grades[i];
         }
         this->grades[subjectCount] = -1;
-    
     }
 
     void addGrades()
@@ -50,8 +47,6 @@ class StudentRecord
             temp++;
         }
     }
-
-
     void print()
     {
         cout<<"Name : "<<student_name<<endl;
@@ -77,7 +72,6 @@ class StudentRecord
         {
             temp.grades[i + this->subjectCount ] = other.grades[i];
         }
-
         return temp;
     }
     ~StudentRecord()
@@ -92,13 +86,12 @@ int main()
     // StudentRecord utsav("Utsav" , 3); // stack memory ;
     StudentRecord *abhijeet = new StudentRecord("Abhijeet" , 3); // allocate to heap
     StudentRecord *vineel = new StudentRecord("vineel" , 3);
-
     abhijeet->addGrades();
     vineel->addGrades();
     abhijeet->print();
     vineel->print();
-
     StudentRecord sharedRecord = *abhijeet + *vineel;
     sharedRecord.print();
     return 0;
+
 }

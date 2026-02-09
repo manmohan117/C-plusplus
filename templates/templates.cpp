@@ -3,6 +3,10 @@ using namespace std;
 typedef unsigned long ul;
 
 template <typename T>
+void print(T first)
+{
+    cout<<first<<endl;
+}
 class myvector {
 
     T* data;
